@@ -11,3 +11,7 @@ app:
       motor-padrao: 130
     config:
         variavel: nomeVariavel
+        valor1: 20
+    jwt:
+      secret: 9A8b7C6d5E4f3G2h1I0j9K8l7M6n5O4p
+      expiration-seconds: 86400

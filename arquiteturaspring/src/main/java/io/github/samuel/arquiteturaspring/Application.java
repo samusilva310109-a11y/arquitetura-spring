@@ -3,10 +3,12 @@ package io.github.samuel.arquiteturaspring;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
+@EnableConfigurationProperties //Habilita a utilização de classes de Configuration Properties
 public class Application {
 
 	public static void main(String[] args) {
@@ -27,7 +29,9 @@ public class Application {
 		// Contexto da aplicação já iniciada:
 		ApplicationContext applicationContext = builder.context();
 
-		Environment environment =
+
+        assert applicationContext != null;
+        Environment environment =
 				applicationContext.getEnvironment();
 
 		// applicationContext.getBean("ProdutoRepository"); // <- Captura uma Bean pelo nome
@@ -39,6 +43,9 @@ public class Application {
 		ExemploValue ex = applicationContext.getBean(ExemploValue.class);
 
 		ex.imprimir();
+
+		AppProperties appProperties = applicationContext.getBean(AppProperties.class);
+		System.out.println(appProperties.getValor1());
 //		System.out.println(applicationName);
 //		System.out.println("Nome do perfil: " + perfilName);
 

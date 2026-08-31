@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExemploValue {
 
-    @Value("${app.config.variavel}")
+    @Value("${app.config.variavel}") //Injeta o valor da variavel presente
+                                                    // no application.yml na variável
     private String variavel;
 
     public void imprimir() {
